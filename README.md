@@ -1,50 +1,111 @@
-# SmartMove
+# SmartMove – Public Transport Simulation & Crowd Reporting (MVP)
 
-SmartMove is a smart-city transit layer designed to solve the "Black Box" problem of public transport. By utilizing Passive Detection and Anonymous Handshakes, we bridge the gap between bus arrival, crowd density, and safe last-mile connectivity.
-🚀 The Core "Syncs"
-1. The Occupancy Layer (Sync 1)
+SmartMove is a prototype smart-city transit application that explores solutions to the "black box" problem in public transport — where commuters lack real-time visibility into bus arrival, occupancy, and last-mile safety.
 
-    Problem: You don't know if a bus is full until it passes you.
+This project focuses on simulating real-time transit tracking and crowd reporting, while experimenting with concepts for safer and more predictable commuting.
 
-    Solution: Software-Based Crowdsourcing. * Passive Detection: The app matches user GPS/Velocity to known bus routes.
+---
 
-        The One-Tap Prompt: Users on the bus receive a low-friction notification to report crowd status (🟢, 🟡, 🔴).
+## 🚀 Core Features (MVP)
 
-        Global Update: Data is aggregated via FastAPI and updated on the map for all waiting commuters.
+### 🚌 Live Bus Tracking
 
-2. The Private Handshake (Sync 2)
+* Simulated real-time bus movement using GPS coordinates
+* Interactive map built with OpenStreetMap and Leaflet
+* Visual representation of routes and moving buses
 
-    Problem: Safety concerns for women and vulnerable commuters during the "last mile" (bus stop to home).
+### 👥 Crowd Reporting System
 
-    Solution: Anonymous Intent.
+* Users can report bus occupancy using a simple interface:
 
-        Commuters pre-verify their arrival with a private "ride-needed" token.
+  * 🟢 Low
+  * 🟡 Medium
+  * 🔴 High
+* Crowd data updates dynamically on the map
+* Demonstrates a crowdsourced approach to transit awareness
 
-        No personal data or exact stop is broadcast.
+### 🎨 Dynamic Map Visualization
 
-        Verified drivers/rickshaws receive a "pickup nearby" alert, locking in a safe ride before the user even steps off the bus.
+* Bus markers change color based on occupancy data
+* Real-time UI updates using React state management
 
-3. Safety-Luminous Routing
+---
 
-    Problem: The shortest path isn't always the safest.
+## 🧪 Experimental Concepts (In Progress)
 
-    Solution: An Overlay UI that uses OpenStreetMap tags (lights/open shops) to highlight well-lit walking paths to transit hubs.
+These features are part of the long-term vision but are not fully implemented in the current MVP:
 
-🛠️ Tech Stack
-Component	Technology
-Frontend	React (Vite), Tailwind CSS, Lucide Icons
-Backend	Python (FastAPI), Uvicorn
-Mapping	Leaflet.js / OpenStreetMap API
-State Management	React Hooks (Context API for real-time updates)
-Simulation	Python background tasks for GPS bus movement
-📸 MVP Features (Priority)
+### 🔐 Anonymous Handshake System
 
-    [x] Live Map: Real-time bus tracking using simulated GPS coordinates.
+* Concept for secure, privacy-preserving ride matching
+* Intended to connect commuters with verified last-mile transport
+* Focus on minimizing data exposure while ensuring safety
 
-    [x] Crowd Reporting: Reactive UI for users to report bus occupancy.
+### 🌃 Safety-Oriented Routing
 
-    [x] Dynamic Map Icons: Bus markers change color based on real-time crowd data.
+* Exploration of safer walking routes using OpenStreetMap data
+* Emphasis on well-lit and active areas rather than shortest paths
 
-    [ ] Handshake Protocol: (In Development) Anonymous token exchange for last-mile drivers.
+### 🚑 Emergency Routing Priority
 
-    [ ] Emergency Priority: Route optimization for emergency vehicles (Ambulance/Fire).
+* Concept for prioritizing emergency vehicles in transit networks
+
+---
+
+## 🛠️ Tech Stack
+
+| Component        | Technology                 |
+| ---------------- | -------------------------- |
+| Frontend         | React (Vite), Tailwind CSS |
+| Backend          | Python (FastAPI), Uvicorn  |
+| Mapping          | Leaflet.js, OpenStreetMap  |
+| State Management | React Hooks / Context API  |
+| Simulation       | Python background tasks    |
+
+---
+
+## ⚙️ How It Works (MVP)
+
+1. Simulated buses move along predefined routes using backend logic
+2. Frontend fetches and displays real-time positions on the map
+3. Users submit crowd levels through the UI
+4. Data is aggregated and reflected visually across all clients
+
+---
+
+## ⚠️ Project Status
+
+This project is an MVP/prototype.
+
+* Core functionality (bus tracking and crowd reporting) is partially implemented
+* Advanced features like anonymous ride matching and safety routing are conceptual and under development
+* The system currently uses simulated data rather than real-world integration
+
+---
+
+## 💡 Motivation
+
+Public transport systems often lack transparency. Commuters cannot easily predict:
+
+* whether a bus is overcrowded
+* how long it will take to arrive
+* how safe their journey will be after getting off
+
+SmartMove explores how lightweight, crowdsourced data and mapping tools can improve this experience.
+
+---
+
+## 🚧 Future Improvements
+
+* Integration with real-time transit APIs
+* More accurate GPS tracking and route handling
+* Implementation of anonymous handshake protocol
+* Safety-based route scoring system
+* Mobile app version (Flutter)
+* Scalable backend for real-time updates
+
+---
+
+## 📌 Notes
+
+This project was developed as an exploration of smart-city transit systems and is not production-ready.
